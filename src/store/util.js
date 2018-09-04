@@ -21,4 +21,14 @@ export class Utils {
       })
     })
   }
+  post (url, data = {}) {
+        url = configPath + url
+        return new Promise((resolve, reject) => {
+            vm.$http.get(url, {params: data, credentials: true}).then((response) => {
+                resolve(response.body)
+            }, function () {
+                console.log('接口异常')
+            })
+        })
+    }
 }
