@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <!--<Dheader></Dheader>-->
     <transition name="fade" mode="out-in">
       <keep-alive exclude="moviesDetail">
         <router-view class="view"></router-view>
@@ -9,7 +8,6 @@
   </div>
 </template>
 <script>
-  import Dheader from './header.vue'
   export default {
     data () {
       return {
@@ -17,7 +15,7 @@
       }
     },
     components: {
-      // 'Dheader': Dheader
+
     }
   }
 </script>
