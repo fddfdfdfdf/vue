@@ -100,6 +100,9 @@ app.get('*', (req, res) => {
     case '/top250':
       title = 'Top250'
       break;
+    case '/login':
+      title = '登录'
+      break;
     default:
       title = '404'
   }
