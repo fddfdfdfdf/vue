@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Dheader></Dheader>
+    <!--<Dheader></Dheader>-->
     <transition name="fade" mode="out-in">
       <keep-alive exclude="moviesDetail">
         <router-view class="view"></router-view>
@@ -17,14 +17,10 @@
       }
     },
     components: {
-      'Dheader': Dheader
+      // 'Dheader': Dheader
     }
   }
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
   @import '../node_modules/element-ui/lib/theme-default/index.css'
-  *
-    margin: 0;
-    padding: 0;
-    font-family: '微软雅黑';
 </style>

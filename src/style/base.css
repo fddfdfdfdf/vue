@@ -1,4 +1,9 @@
 /* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html,body{
+    margin: 0;
+    padding: 0;
+}
+
 html {
     color:#666;
     background:#fff;

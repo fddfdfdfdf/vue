@@ -21,6 +21,9 @@ const MoviesDetail = () => System.import(/* webpackChunkName: "MoviesDetail" */ 
 const Search = () => System.import(/* webpackChunkName: "Search" */ '../views/searchList.vue')
 const moving = () => System.import(/* webpackChunkName: "moving" */ '../views/moving.vue')
 const Upcoming = () => System.import(/* webpackChunkName: "Upcoming" */ '../views/Upcoming.vue')
+const error = () => System.import(/* webpackChunkName: "Upcoming" */ '../views/error.vue')
+
+
 
 export default new Router({
   mode: 'history',
@@ -52,6 +55,13 @@ export default new Router({
     {
       path: '/',
       redirect: '/moving'
-    }
+    },
+     {
+          path:'/404',
+          component: error,
+      },{
+          path:'*',
+          redirect: "/404"
+        }
   ]
 })
