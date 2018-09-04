@@ -59,7 +59,8 @@ export default new Router({
      {
           path:'/404',
           component: error,
-      },{
+      },
+      {
           path:'*',
           redirect: "/404"
         }
