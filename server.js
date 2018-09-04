@@ -61,7 +61,7 @@ app.use('/service-worker.js', serve('./dist/service-worker.js'))
  */
 var options = {
   target: 'http://api.douban.com/v2', // target host
-  changeOrigin: true,               // needed for virtual hosted sites
+  changeOrigin: true,                // needed for virtual hosted sites
   pathRewrite: {
     '^/api': ''
   }
