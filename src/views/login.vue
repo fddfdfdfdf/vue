@@ -23,7 +23,7 @@
 
         },
         mounted(){
-            document.title = '登录'
+            document.title = '登 录'
         },
         methods:{
             dd:function fun(e){
