@@ -22,6 +22,7 @@ const Search = () => System.import(/* webpackChunkName: "Search" */ '../views/se
 const moving = () => System.import(/* webpackChunkName: "moving" */ '../views/moving.vue')
 const Upcoming = () => System.import(/* webpackChunkName: "Upcoming" */ '../views/Upcoming.vue')
 const error = () => System.import(/* webpackChunkName: "Upcoming" */ '../views/error.vue')
+const login = () => System.import(/* webpackChunkName: "Upcoming" */ '../views/login.vue')
 
 
 
@@ -30,9 +31,13 @@ export default new Router({
   scrollBehavior: () => ({y: 0}),
   routes: [
     {
-      path: '/moving',
-      component: createListView('moving')
+      path: '/login',
+      component: login
     },
+      {
+          path: '/moving',
+          component: createListView('moving')
+      },
     {
       path: '/upcoming',
       name: 'upcoming',
@@ -54,7 +59,7 @@ export default new Router({
     },
     {
       path: '/',
-      redirect: '/moving'
+      redirect: '/login'
     },
      {
           path:'/404',

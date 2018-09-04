@@ -21,4 +21,5 @@
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
   @import '../node_modules/element-ui/lib/theme-default/index.css'
+  @import './style/base.css'
 </style>
