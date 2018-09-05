@@ -54,12 +54,6 @@
     mounted () {
       document.title = '正在热映'
       this.$store.dispatch('getMoving')
-        var canvasArr = document.getElementsByTagName("canvas");
-      if(canvasArr.length>0){
-          for (var i = 0, lens = canvasArr.length; i < lens; i++) {
-              document.body.removeChild(document.getElementsByTagName("canvas")[0])
-          }
-      }
     },
     methods: {
       /**

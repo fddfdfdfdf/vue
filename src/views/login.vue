@@ -27,8 +27,6 @@
 </template>
 
 <script>
-    import {dd} from "./canvasNest.js"
-    import {ff} from "./ribbon.js"
     export default {
         name: "login",
         data(){
@@ -49,21 +47,11 @@
         },
         mounted(){
             document.title = '登录';
-            this.$nextTick( () => {
-                if(document.getElementsByTagName("canvas").length==0){
-                    dd();
-                    ff();
-                }
-                this.show = true;
-            })
+            this.show = true;
         },
         methods:{
             dd:function fun(e){
-              e.stopPropagation();
-              var canvasArr = document.getElementsByTagName("canvas");
-               for (var i = 0, lens = canvasArr.length; i < lens; i++) {
-                    document.body.removeChild(document.getElementsByTagName("canvas")[0])
-                }
+               e.stopPropagation();
                this.$router.push("moving")
             }
         }

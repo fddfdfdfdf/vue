@@ -1,13 +1,15 @@
 <template>
   <div id="app">
     <transition name="fade" mode="out-in">
-      <keep-alive exclude="login">
+      <keep-alive>
         <router-view class="view"></router-view>
       </keep-alive>
     </transition>
+    <canvas-show v-if="$route.path == '/login'"></canvas-show>
   </div>
 </template>
 <script>
+  import canvasDiv from "./views/canvas.vue"
   export default {
     data () {
       return {
@@ -15,19 +17,18 @@
       }
     },
       beforeCreate(){
-          console.log("fds-1")
+
       },
       created(){
-          console.log("fds-2")
       },
       beforeMount(){
-          console.log("fds-3")
+
       },
       mounted(){
-          console.log("fds-4")
+          console.log(this.$route.path)
       },
     components: {
-
+        'canvas-show':canvasDiv
     }
   }
 </script>
