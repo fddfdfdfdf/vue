@@ -13,7 +13,7 @@ const serverInfo =
 
 const app = express()
 
-let renderer,ff
+let renderer
 if (isProd) {
   // In production: create server renderer using server bundle and index HTML
   // template from real fs.
@@ -26,8 +26,7 @@ if (isProd) {
 } else {
   // In development: setup the dev server with watch and hot-reload,
   // and create a new renderer on bundle / index template update.
-  require('./build/setup-dev-server')(app, (bundle, template, dd) => {
-    ff = dd;
+  require('./build/setup-dev-server')(app, (bundle, template) => {
     renderer = createRenderer(bundle, template)
   })
 }
@@ -67,7 +66,7 @@ var options = {
     '^/api': ''
   }
 };
-const clientConfig = require('./build/webpack.client.config')
+
 var exampleProxy = proxy(options);
 
 app.use('/api', exampleProxy);
