@@ -106,7 +106,7 @@ app.get('*', (req, res) => {
     default:
       title = '404'
   }
-  renderer.renderToStream({ title, url: req.url })
+  renderer.renderToStream({ title,url: req.url })
     .on('error', errorHandler)
     .on('end', () => console.log(`whole request: ${Date.now() - s}ms`))
     .pipe(res)
