@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <transition name="fade" mode="out-in">
-      <keep-alive exclude="moviesDetail">
+      <keep-alive exclude="login">
         <router-view class="view"></router-view>
       </keep-alive>
     </transition>
@@ -14,6 +14,18 @@
         msg: 'hello vue'
       }
     },
+      beforeCreate(){
+          console.log("fds-1")
+      },
+      created(){
+          console.log("fds-2")
+      },
+      beforeMount(){
+          console.log("fds-3")
+      },
+      mounted(){
+          console.log("fds-4")
+      },
     components: {
 
     }

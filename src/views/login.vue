@@ -1,43 +1,99 @@
 <template>
-    <div class="login">
-        <div class="script" v-html="dds"></div>
+    <div class="login" v-if="show">
         <div class="loginContain">
             <div>
-                <div @click="dd">
-                    login
-                </div>
+                <ul>
+                    <li class="loginHeader">后台管理系统</li>
+                    <li>
+                        <label for="userName">用户名 : </label>
+                        <input type="text" id="userName">
+                    </li>
+                    <li>
+                        <label for="pwd">密&nbsp;&nbsp;&nbsp;&nbsp;码 : </label>
+                        <input type="text" id="pwd">
+                    </li>
+                    <li class="checkcode">
+                        <label for="checkCode">验证码 : </label>
+                        <input type="text" id="checkCode">
+                        <img src="/public/logo-48.png" alt="">
+                    </li>
+                    <li>
+                       <button @click="dd">登录</button>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import {dd} from "./canvasNest.js"
+    import {ff} from "./ribbon.js"
     export default {
         name: "login",
         data(){
             return {
-                dds:'<script src="http://cdn.atool.org/res/ribbon.min.js" type="text/javascript"><\/script><script color="255,255,255" opacity="1" count="99" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.js" type="text/javascript" charset="utf-8"><\/script>'
+                show:false
             }
+        },
+        computed:{
         },
         beforeCreate(){
 
         },
+        created(){
+
+        },
+        beforeMount(){
+
+        },
         mounted(){
-            document.title = '登录'
+            document.title = '登录';
+            this.$nextTick( () => {
+                if(document.getElementsByTagName("canvas").length==0){
+                    dd();
+                    ff();
+                }
+                this.show = true;
+            })
         },
         methods:{
             dd:function fun(e){
               e.stopPropagation();
-              console.log("click")
+              var canvasArr = document.getElementsByTagName("canvas");
+               for (var i = 0, lens = canvasArr.length; i < lens; i++) {
+                    document.body.removeChild(document.getElementsByTagName("canvas")[0])
+                }
+               this.$router.push("moving")
             }
         }
     }
-</script>
+   </script>
 
 <style rel="stylesheet/stylus" lang="stylus">
-#c_n2
+    @media all and (max-width: 768px){
+       ul{
+           width: 70% !important;
+       }
+    }
+.checkcode
+    position:relative;
+    left:0;
+    top:0;
+    input
+      width: 40% !important;
+      padding-right: 30%;
+    img
+      position: absolute;
+      right: 7%;
+      top: 0px;
+      width:30%;
+      height:25px;
+      border-radius:5px;
+#canvasBg
    background:#2d2d2d !important;
    z-index:1 !important;
+   opacity:1 !important;
 canvas
    z-index:2 !important;
 .login
@@ -61,12 +117,38 @@ canvas
       height:100%;
       vertical-align:middle;
       text-align:center;
-      &>div
+      &>ul
         display:inline-block;
-        background: #11381d;
+        background: #000;
         padding: 20px;
-        opacity: 0.6;
+        width: 20%;
         border-radius: 10px;
-        color: #fff;
+        color: #999;
+        opacity: .7;
         box-shadow: 0px 0px 1rem .3rem #1b8800;
+        .loginHeader
+          font-size:26px;
+          font-weight:600;
+        li
+          margin:10px 0;
+          font-size:16px;
+          text-align:center;
+          input
+            border:none;
+            outline:none;
+            width: 70%;
+            border-radius:5px;
+            text-indent:10px;
+          .checkcode
+            width:40%;
+          button
+            background: #1b8800;
+            width: 60%;
+            border: none;
+            font-size: 18px;
+            outline: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            color: #fff;
+            opacity: .8;
 </style>
