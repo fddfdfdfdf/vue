@@ -72,49 +72,51 @@ var exampleProxy = proxy(options);
 app.use('/api', exampleProxy);
 
 app.get('*', (req, res) => {
-  if (!renderer) {
-    return res.end('waiting for compilation... refresh in a moment.')
-  }
 
-  const s = Date.now()
-
-  res.setHeader("Content-Type", "text/html")
-  res.setHeader("Server", serverInfo)
-
-  const errorHandler = err => {
-    if (err && err.code === 404) {
-      res.status(404).end('404 | Page Not Found')
-    } else {
-      // Render Error Page or Redirect
-      res.status(500).end('500 | Internal Server Error')
-      console.error(`error during render : ${req.url}`)
-      console.error(err)
+    if (!renderer) {
+        return res.end('waiting for compilation... refresh in a moment.')
     }
-  }
-  var title = ''
-  switch (req.url) {
-    case '/moving':
-      title = '正在热映'
-      break;
-    case '/upcoming':
-      title = '即将上映'
-      break;
-    case '/top250':
-      title = 'Top250'
-      break;
-    case '/login':
-      title = '登录'
-      break;
-    default:
-      title = '404'
-  }
-  renderer.renderToStream({ title, url: req.url })
-    .on('error', errorHandler)
-    .on('end', () => console.log(`whole request: ${Date.now() - s}ms`))
-    .pipe(res)
+
+    const s = Date.now()
+
+    res.setHeader("Content-Type", "text/html")
+    res.setHeader("Server", serverInfo)
+
+    const errorHandler = err => {
+        if (err && err.code === 404) {
+            res.status(404).end('404 | Page Not Found')
+        } else {
+            // Render Error Page or Redirect
+            res.status(500).end('500 | Internal Server Error')
+            console.error(`error during render : ${req.url}`)
+            console.error(err)
+        }
+    }
+    var title = ''
+    switch (req.url) {
+        case '/moving':
+            title = '正在热映'
+            break;
+        case '/upcoming':
+            title = '即将上映'
+            break;
+        case '/top250':
+            title = 'Top250'
+            break;
+        case '/login':
+            title = '登录'
+            break;
+        default:
+            title = '404'
+    }
+    renderer.renderToStream({ title, url: req.url })
+        .on('error', errorHandler)
+        .on('end', () => console.log(`whole request: ${Date.now() - s}ms`))
+        .pipe(res)
 })
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {
   console.log(`server started at localhost:${port}`)
 })
+
