@@ -2,15 +2,15 @@
   <div id="app">
     <el-container>
       <el-header>
-        <v-header v-if="$route.path != '/login'">header</v-header>
+        <v-header v-if="$route.path != '/login'"></v-header>
       </el-header>
       <el-container>
-        <el-aside width="200px">Aside</el-aside>
+        <el-aside width="200px" v-if="$route.path != '/login'">Aside</el-aside>
         <el-main>
           <transition name="fade" mode="out-in">
-            <!--<keep-alive>-->
-              <!--<router-view class="view"></router-view>-->
-            <!--</keep-alive>-->
+            <keep-alive>
+              <router-view class="view"></router-view>
+            </keep-alive>
           </transition>
           <v-footer v-if="$route.path != '/login'"></v-footer>
         </el-main>
@@ -51,6 +51,6 @@
   }
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
-  @import '../node_modules/element-ui/lib/theme-chalk/index.css'
+  /*@import '../node_modules/element-ui/lib/theme-chalk/index.css'*/
   @import './style/base.css'
 </style>
