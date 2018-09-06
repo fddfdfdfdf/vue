@@ -59,10 +59,18 @@
    </script>
 
 <style rel="stylesheet/stylus" lang="stylus">
-    @media all and (max-width: 768px){
+    @media all and (max-width: 766px){
        ul{
            width: 70% !important;
        }
+    }
+    @media all and (min-width: 766px) and (max-width: 1024px) {
+        ul{
+            width: 40% !important;
+        }
+        .checkcode img {
+            right: 8% !important;
+        }
     }
 .checkcode
     position:relative;
@@ -109,7 +117,7 @@ canvas
         display:inline-block;
         background: #000;
         padding: 20px;
-        width: 20%;
+        width: 22%;
         border-radius: 10px;
         color: #999;
         opacity: .7;

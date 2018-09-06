@@ -61,13 +61,13 @@ export default new Router({
       path: '/',
       redirect: '/login'
     },
-     {
-          path:'/404',
-          component: error,
-      },
-      {
-          path:'*',
-          redirect: "/404"
-        }
+     // {
+     //      path:'/404',
+     //      component: error,
+     //  },
+     //  {
+     //      path:'*',
+     //      redirect: "/404"
+     //    }
   ]
 })
