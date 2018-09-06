@@ -61,6 +61,7 @@
        * @param command
        */
       changeCity (command) {
+          console.log(this.$dispatch)
         this.$store.commit('MOVING_LOADING', {loading: true})
         this.$store.commit('MOVIE_CITY', {city: command})
         this.$store.dispatch('getMoving')
