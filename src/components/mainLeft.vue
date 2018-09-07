@@ -12,36 +12,15 @@
                             text-color="#fff"
                             active-text-color="#ffd04b">
 
-                        <el-submenu index="1">
+                        <el-submenu :key="index"  v-for="(item ,index) in leftData" :index="`${index}`">
                             <template slot="title">
-                                <i class="el-icon-location"></i>
-                                <span>导航一</span>
+                                <i class="el-icon-document"></i>
+                                <span v-html="item.title"></span>
                             </template>
-                            <el-menu-item-group>
-                                <template slot="title">分组一</template>
-                                <el-menu-item index="1-1">选项1</el-menu-item>
-                                <el-menu-item index="1-2">选项2</el-menu-item>
+                            <el-menu-item-group  v-for="(items ,indexs) in item.data" :key="indexs">
+                                <el-menu-item :index="`${index}-${indexs}`" >{{items}}</el-menu-item>
                             </el-menu-item-group>
-                            <el-menu-item-group title="分组2">
-                                <el-menu-item index="1-3">选项3</el-menu-item>
-                            </el-menu-item-group>
-                            <el-submenu index="1-4">
-                                <template slot="title">选项4</template>
-                                <el-menu-item index="1-4-1">选项1</el-menu-item>
-                            </el-submenu>
                         </el-submenu>
-                        <el-menu-item index="2">
-                            <i class="el-icon-menu"></i>
-                            <span slot="title">导航二</span>
-                        </el-menu-item>
-                        <el-menu-item index="3" >
-                            <i class="el-icon-document"></i>
-                            <span slot="title">导航三</span>
-                        </el-menu-item>
-                        <el-menu-item index="4">
-                            <i class="el-icon-setting"></i>
-                            <span slot="title">导航四</span>
-                        </el-menu-item>
                     </el-menu>
                 </el-col>
             </el-row>
@@ -63,13 +42,76 @@
             return {
                leftData:[
                    {
-                       isHas:true,
-                       second:[
-
+                       title:"商品管理",
+                       data:[
+                           "商品列表",
+                           "添加新商品",
+                           "商品分类",
+                           "用户评论",
+                           "商品品牌",
+                           "商品类型",
+                           "商品回收站",
+                           "图片批量处理",
+                           "商品批量上传",
+                           "商品批量导出",
+                           "商品批量修改",
+                           "生成商品代码",
+                           "标签管理",
+                           "虚拟商品列表",
+                           "添加虚拟商品",
+                           "更改加密串",
+                           "商品自动上下架"
+                     ]
+                   },
+                   {
+                       title:"促销管理",
+                       data:[
+                           "红包类型",
+                           "商品包装",
+                           "祝福贺卡",
+                           "团购活动",
+                           "专题管理",
+                           "拍卖活动",
+                           "优惠活动",
+                           "批发管理",
+                           "超值礼包",
+                           "积分商城商品"
                        ]
                    },
                    {
-                       isHas:false
+                       title:"订单管理",
+                       data:[
+                           "订单列表",
+                           "订单查询",
+                           "合并订单",
+                           "订单打印",
+                           "缺货登记",
+                           "添加订单",
+                           "发货单列表",
+                           "退货单列表"
+                       ]
+                   },
+                   {
+                       title:"广告管理",
+                       data:[
+                           "广告列表",
+                           "广告位置"
+                       ]
+                   },
+                   {
+                       title:"报表统计",
+                       data:[
+                           "流量分析",
+                           "客户统计",
+                           "订单统计",
+                           "销售概况",
+                           "会员排行",
+                           "销售明细",
+                           "搜索引擎",
+                           "销售排行",
+                           "访问购买率",
+                           "站外投放JS"
+                       ]
                    }
                ]
             }
@@ -122,6 +164,13 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+.leftAslideCt
+    .el-menu-item-group__title
+        display:none;
+    .el-menu-item
+         padding-right:0 !important;
+         height:initial !important;
+         line-height:initial !important;
 .overScroll
     position: absolute;
     right: 0;
