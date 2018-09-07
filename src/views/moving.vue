@@ -1,25 +1,8 @@
 <template>
   <div class="moving">
-    <div class="tit">
-      <h1>电影票 - {{city}}</h1>
-      <div id="" class="locat">
-        <el-dropdown trigger="click" @command="changeCity">
-            <a class="el-dropdown-link" href="javascript:;">
-              [切换城市]
-            </a>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item v-for="(city,index) in citys" :command="city.name" :key="index">{{city.name}}</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-      </div>
-      <div class="hd">
-        <h2>影院上映</h2>
-        <ul class="tab-hd clearfix">
-          <li class="on">正在上映</li>
-        </ul>
-      </div>
+    <div>
+      main
     </div>
-    <MoviesTag :data="movingList" class="movieTag"></MoviesTag>
   </div>
 </template>
 
