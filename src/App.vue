@@ -1,19 +1,17 @@
 <template>
   <div id="app">
-    <el-container>
       <v-header v-if="$route.path != '/login'"></v-header>
-      <!--<el-row>-->
-         <!--<v-left></v-left>-->
-         <!--<el-col :xs="24" :span="21" style="overflow-y: scroll">-->
-            <!--<transition name="fade" mode="out-in">-->
-              <!--<keep-alive>-->
-                <!--<router-view class="view"></router-view>-->
-              <!--</keep-alive>-->
-            <!--</transition>-->
-            <!--<v-footer v-if="$route.path != '/login'"></v-footer>-->
-          <!--</el-col>-->
-      <!--</el-row>-->
-    </el-container>
+      <div class="content">
+         <v-left></v-left>
+        <div class="contentRight">
+          <transition name="fade" mode="out-in">
+            <keep-alive>
+              <router-view class="view"></router-view>
+            </keep-alive>
+          </transition>
+          <v-footer v-if="$route.path != '/login'"></v-footer>
+        </div>
+      </div>
     <canvas-show v-if="$route.path == '/login'"></canvas-show>
   </div>
 </template>
@@ -51,30 +49,26 @@
 <style lang="stylus" rel="stylesheet/stylus">
   /*@import '../node_modules/element-ui/lib/theme-chalk/index.css'*/
   @import './style/base.css'
-  .el-row
-     height: 100%;
-     .leftAslide
-         height:100%;
-         position:relative;
-         left:0;
-         top:0;
-         background:rgb(84, 92, 100);
-         .el-menu-vertical-demo
-             padding-bottom:56px;
-         .el-menu
-            border:none !important;
-  .el-main
-    left: -10px;
-    background: #f5f5f5;
-  .mainLeft
-     width: initial !important;
-     background: rgb(84, 92, 100);
-     .el-menu
-        border:none !important;
-     li
-         span
-            padding-right:40%;
-  .el-main
-     width:100%;
-     height:100%;
+  .content
+     width:91.66667%;
+     margin:0 auto;
+     &>div
+       display:inline-block;
+       vertical-align:top;
+     .contentLeft
+       width:40%;
+     .contentRight
+       width:60%;
+
+  @media only screen and (max-width: 768px){
+    .content{
+      width:100%;
+    }
+    .content .contentLeft{
+       display: none;
+    }
+    .content .contentRight{
+       width:100%;
+    }
+  }
 </style>

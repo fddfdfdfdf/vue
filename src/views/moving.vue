@@ -1,8 +1,6 @@
 <template>
-  <div class="moving">
-    <div>
-      main
-    </div>
+  <div class="main">
+    main
   </div>
 </template>
 
@@ -74,45 +72,5 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style rel="stylesheet/stylus" lang="stylus">
-  .moving
-    margin-bottom: 20px;
-    p
-      color: red;
-    .tit
-      width: 950px;
-      margin: 0 auto;
-      margin-top: 20px;
-      h1
-        display: inline-block;
-        width: 126px;
-        font-size: 20px;
-        color: #000;
-      .locat
-        position: relative;
-        display: inline-block;
-
-      .hd
-        border: none;
-
-  .tab-hd
-    vertical-align: bottom;
-    li
-      margin: 0 5px;
-      float: left;
-
-    .on
-      background-color: #69c;
-      color: #fff;
-      padding: 0 10px;
-      -webkit-border-radius: 2px;
-      -moz-border-radius: 2px;
-      border-radius: 2px;
-
-  .hd
-    padding: 10px 0;
-    border-bottom: 1px dashed #ccc;
-    h2, .tab-hd
-      display: inline-block;
-
 
 </style>
