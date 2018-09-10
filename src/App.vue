@@ -1,20 +1,18 @@
 <template>
   <div id="app">
     <el-container>
-      <el-header>
-        <v-header v-if="$route.path != '/login'"></v-header>
-      </el-header>
-      <el-row>
-         <v-left></v-left>
-         <el-col :span="22" style="overflow-y: scroll">
-            <transition name="fade" mode="out-in">
-              <keep-alive>
-                <router-view class="view"></router-view>
-              </keep-alive>
-            </transition>
-            <v-footer v-if="$route.path != '/login'"></v-footer>
-          </el-col>
-      </el-row>
+      <v-header v-if="$route.path != '/login'"></v-header>
+      <!--<el-row>-->
+         <!--<v-left></v-left>-->
+         <!--<el-col :xs="24" :span="21" style="overflow-y: scroll">-->
+            <!--<transition name="fade" mode="out-in">-->
+              <!--<keep-alive>-->
+                <!--<router-view class="view"></router-view>-->
+              <!--</keep-alive>-->
+            <!--</transition>-->
+            <!--<v-footer v-if="$route.path != '/login'"></v-footer>-->
+          <!--</el-col>-->
+      <!--</el-row>-->
     </el-container>
     <canvas-show v-if="$route.path == '/login'"></canvas-show>
   </div>

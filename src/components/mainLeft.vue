@@ -1,5 +1,5 @@
 <template>
-    <el-col ref="leftContain" class="leftAslide" :span="2">
+    <el-col ref="leftContain" class="leftAslide" :xs="0" :span="3">
         <div class="leftAslideCt" ref="leftAslideCt">
             <el-row class="tac">
                 <el-col ref="leftCont">
