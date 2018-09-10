@@ -50,15 +50,15 @@
   /*@import '../node_modules/element-ui/lib/theme-chalk/index.css'*/
   @import './style/base.css'
   .content
-     width:91.66667%;
+     width:88%;
      margin:0 auto;
      &>div
        display:inline-block;
        vertical-align:top;
      .contentLeft
-       width:40%;
+       width:15%;
      .contentRight
-       width:60%;
+       width:85%;
 
   @media only screen and (max-width: 768px){
     .content{
