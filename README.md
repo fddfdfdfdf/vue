@@ -32,3 +32,14 @@ npm run build
 # serve in production mode
 npm start
 ```
+
+//动画集
+scrollreveal.js
+aos.js
+tween.js
+
+css动画库
+magic
+animate.css
+https://www.cnblogs.com/feihui-zqs/p/5880786.html
+
